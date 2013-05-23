@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Exercise
+namespace Median
 {
     // extensin method for generic IEnumerable double computing median
     public static class Median

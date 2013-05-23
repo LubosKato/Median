@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Median;
 using NUnit.Framework;
-using Exercise;
 
-namespace ExcerciseTest
+namespace MedianTest
 {
     [TestFixture]
     public class Test
