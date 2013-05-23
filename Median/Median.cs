@@ -9,9 +9,8 @@ namespace Exercise
     {
          public static double ComputeMedian(this IEnumerable<double?> values)
          {
-             double median = 0;
              var sourceNumbers = values as double?[] ?? values.ToArray();
-             if (sourceNumbers == null || sourceNumbers.Length == 0)
+             if (sourceNumbers.Length == 0)
              {
                  throw new NotImplementedException();
              }
@@ -20,17 +19,11 @@ namespace Exercise
             var sortedPNumbers = (double?[])sourceNumbers.Clone();
             sourceNumbers.CopyTo(sortedPNumbers, 0);
             Array.Sort(sortedPNumbers);
-            sortedPNumbers = sourceNumbers.Where(x => x != null).ToArray();
+            sortedPNumbers = sortedPNumbers.Where(x => x != null).ToArray();
             //get the median
             int size = sortedPNumbers.Length;
             int mid = size / 2;
-             var sortedPNumber = sortedPNumbers[mid];
-             if (sortedPNumber != null)
-             {
-                 var pNumber = sortedPNumbers[mid - 1];
-                 if (pNumber != null)
-                     median = (size % 2 != 0) ? (double)sortedPNumber : ((double)sortedPNumber + (double)pNumber) / 2;
-             }
+             var median = (size % 2 != 0) ? (double)sortedPNumbers[mid] : ((double)sortedPNumbers[mid] + (double)sortedPNumbers[mid - 1]) / 2;
              return median;
          }
     }
